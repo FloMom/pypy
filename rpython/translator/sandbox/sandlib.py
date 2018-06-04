@@ -359,6 +359,7 @@ class SimpleIOSandboxedProc(SandboxedProc):
     def do_ll_os__ll_os_write(self, fd, data):
         if fd == 1:
             self._output.write(data)
+            self._output.flush()
             return len(data)
         if fd == 2:
             self._error.write(data)
